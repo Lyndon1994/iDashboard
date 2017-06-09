@@ -45,3 +45,23 @@ Route::group(['prefix' => 'admin/log','middleware' => ['auth','check.permission:
 	$router->get('/{date}/{level}','\Arcanedev\LogViewer\Http\Controllers\LogViewerController@showByLevel')->name('log.filter');
 
 });
+
+Route::group(['prefix' => 'wechat'],function ($router)
+{
+    $router->any('/test', 'WechatController@test');
+    $router->get('/headimgurl', 'WechatController@headimgurl');
+    $router->any('/login', 'WechatController@login');
+    $router->any('/auth', 'WechatController@auth');
+    $router->get('/bind', 'WechatController@bind');
+    $router->any('/callback/{appid}', 'WechatController@callback');
+});
+Route::group(['prefix' => 'act','namespace' => 'Act','middleware' => ['auth']],function ($router)
+{
+    $router->any('/tickets', 'TicketsController@index')->name('act.tickets');
+});
+Route::group(['prefix' => 'user', 'namespace' => 'Auth','middleware' => ['auth']],function ($router)
+{
+    $router->get('/', 'UserController@index');
+    $router->get('/edit', 'UserController@edit');
+    $router->put('/update', 'UserController@update');
+});

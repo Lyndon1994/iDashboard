@@ -1,7 +1,12 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "m-union/admin",
+    "description": "魅族校园后台管理系统.",
+    "keywords": [
+        "meizu",
+        "m-union",
+        "魅蓝校园",
+        "魅联盟"
+    ],
     "license": "MIT",
     "type": "project",
     "require": {
@@ -12,14 +17,17 @@
         "geniusts/roles": "^3.0.2",
         "laracasts/flash": "^2.0",
         "hieu-le/active": "^3.3",
-        "arcanedev/log-viewer": "^4.0"
+        "arcanedev/log-viewer": "^4.0",
+        "overtrue/laravel-wechat": "~3.0",
+        "jenssegers/agent": "^2.5"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~5.0",
         "symfony/css-selector": "3.1.*",
-        "symfony/dom-crawler": "3.1.*"
+        "symfony/dom-crawler": "3.1.*",
+        "barryvdh/laravel-ide-helper": "^2.3"
     },
     "autoload": {
         "classmap": [

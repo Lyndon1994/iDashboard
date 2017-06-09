@@ -172,6 +172,9 @@ return [
         Laracasts\Flash\FlashServiceProvider::class, // flash 通知
         HieuLe\Active\ActiveServiceProvider::class, //Active
         Arcanedev\LogViewer\LogViewerServiceProvider::class, //系统日志
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,//IDE助手
+        Jenssegers\Agent\AgentServiceProvider::class,//代理
+        Overtrue\LaravelWechat\ServiceProvider::class,//微信
 
 
         /*

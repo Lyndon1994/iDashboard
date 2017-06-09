@@ -37,7 +37,11 @@ class CheckPermission
                 $permission = config('admin.permissions.'.$model,'');
                 break;
         }
-        $this->check($request,$permission);
+        if (empty($permission)) {
+            $this->checkRecursive($request);
+        }else {
+            $this->check($request, $permission);
+        }
         return $next($request);
     }
 
@@ -46,5 +50,23 @@ class CheckPermission
         if (!$request->user()->can($permission)) {
             abort(500,trans('admin/errors.permissions'));
         }
+    }
+
+    /**
+     * 递归检查
+     * @param $request
+     */
+    private function checkRecursive($request)
+    {
+        $uri = Route::current()->uri();
+        $permissionArr = [];
+        foreach (explode('/', $uri) as $item) {
+            $permissionArr[]= $item;
+            $permission = implode('.', $permissionArr);
+            if($request->user()->can($permission)){
+                return;
+            }
+        };
+        abort(500,trans('admin/errors.permissions'));
     }
 }

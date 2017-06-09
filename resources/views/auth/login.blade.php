@@ -14,8 +14,8 @@
   {{ csrf_field() }}
   <dl class="admin_login">
     <dt>
-    <strong>站点后台管理系统</strong>
-    <em>Management System</em>
+    <strong>魅联盟后台管理系统</strong>
+    <em>M-Union Management System</em>
     </dt>
     <dd class="user_icon">
     <input type="text" placeholder="{{trans('validation.attributes.username')}}" name="{{config('admin.global.username')}}" class="login_txtbx" value="{{old(config('admin.global.username'))}}" />
@@ -33,12 +33,11 @@
     </dt>
     @endif
     </dd>
+      <dd style="display: none;">
+          <input type="checkbox" name="remember" checked> 记住我
+      </dd>
     <dd>
     <input type="submit" value="立即登陆" class="submit_btn"/>
-    </dd>
-    <dd>
-    <p>晚黎后台权限系统</p>
-    <p>iwanli</p>
     </dd>
   </dl>
 </form>

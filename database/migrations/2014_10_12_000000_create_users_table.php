@@ -18,6 +18,9 @@ class CreateUsersTable extends Migration
             $table->string('name')->default('')->comment('用户名');
             $table->string('username')->unique()->comment('账号');
             $table->string('email')->default('')->comment('邮箱');
+            $table->string('openid')->nullable()->comment('微信OPENID');
+            $table->string('dingid')->nullable()->comment('钉钉ID');
+            $table->string('headimgurl')->nullable()->comment('头像');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

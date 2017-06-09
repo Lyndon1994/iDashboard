@@ -16,6 +16,15 @@ if(!function_exists('getUser')){
 if(!function_exists('getUerId')){
 	function getUerId()
 	{
-		return $this->getUser()->id;
+		return getUser()->id;
 	}
+}
+
+if (!function_exists('isWechat')) {
+    function isWechat()
+    {
+        $result = isset($_SERVER['HTTP_USER_AGENT']) ?
+            strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') : false;
+        return $result !== false;
+    }
 }

@@ -4,19 +4,19 @@
     <ul class="nav metismenu" id="side-menu">
       <li class="nav-header">
           <div class="dropdown profile-element"> <span>
-                  <img alt="image" class="img-circle" src="{{asset('admin/img/profile_small.jpg')}}" />
+                  <a href="{{url('user')}}"><img alt="image" class="img-circle" src="{{empty(getUser()->headimgurl)?asset('admin/img/profile_small.jpg'):getUser()->headimgurl}}" style="max-width: 60px;"/></a>
                    </span>
-              <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                  <span class="clear"> <span class="block m-t-xs"> {{getUser()->name}} <strong class="font-bold"></strong>
-                   </span> <span class="text-muted text-xs block">Art Director <b class="caret"></b></span> </span> </a>
-              <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                  <li><a href="profile.html">Profile</a></li>
-                  <li class="divider"></li>
-                  <li><a href="login.html">Logout</a></li>
-              </ul>
+              {{--<a data-toggle="dropdown" class="dropdown-toggle" href="#">--}}
+                  {{--<span class="clear"> <span class="block m-t-xs"> {{getUser()->name}} <strong class="font-bold"></strong>--}}
+                   {{--</span> <span class="text-muted text-xs block">Art Director <b class="caret"></b></span> </span> </a>--}}
+              {{--<ul class="dropdown-menu animated fadeInRight m-t-xs">--}}
+                  {{--<li><a href="/user/edit">Profile</a></li>--}}
+                  {{--<li class="divider"></li>--}}
+                  {{--<li><a href="login.html">Logout</a></li>--}}
+              {{--</ul>--}}
           </div>
           <div class="logo-element">
-              ID
+              <a href="{{url('user')}}">{{getUser()->name}}</a>
           </div>
       </li>
       {!!$menuPresenter->sidebarMenuList($sidebarMenu)!!}

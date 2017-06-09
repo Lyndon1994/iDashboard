@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>i晚黎后台</title>
+  <title>M-Union</title>
   <link href="{{asset('vendors/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
   <link href="{{asset('vendors/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
   <link href="{{asset('vendors/animate/animate.css')}}" rel="stylesheet">
@@ -86,7 +86,7 @@
               10GB of <strong>250GB</strong> Free.
           </div>
           <div>
-              <strong>Copyright</strong> 晚黎后台 &copy; http://www.iwanli.me
+              <strong>Copyright</strong> Lyndon &copy; http://www.linyii.com
           </div>
       </div>
 
