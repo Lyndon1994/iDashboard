@@ -20,7 +20,7 @@ class WechatRedirect
      */
     public function handle($request, Closure $next)
     {
-        if (isWechat() && Auth::guest()) {
+        if (isWechat() && Auth::guest() && !$request->session()->exists('wechat_auth')) {
             $app = WechatController::app();
             try {
                 $user = $app->oauth->setRequest($request)->user();
@@ -30,7 +30,9 @@ class WechatRedirect
                     Auth::login($u);
                 }
             } catch (\Exception $exception) {
-                $response = $app->oauth->scopes(['snsapi_userinfo'])
+                //如果尝试过获取一次微信授权信息，就不会再获取了
+                $request->session()->push('wechat_auth', true);
+                $response = $app->oauth->scopes(['snsapi_base'])
                     ->setRequest($request)
                     ->redirect();
                 return $response;

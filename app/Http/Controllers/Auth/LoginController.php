@@ -45,4 +45,29 @@ class LoginController extends Controller
     {
         return config('admin.global.username');
     }
+
+    /**
+     * 登录时写入cookie，兼容老系统，直接登录
+     * @param Request $request
+     * @param $user
+     */
+    public function authenticated(Request $request, $user)
+    {
+        $key = env('APP_KEY');
+        $data = base64_encode($user->username.'@'.md5($user->username.$key));
+        \Cookie::queue('auth_data', $data, 9999999, null, '.'.getHost());
+    }
+
+    public function logout(Request $request)
+    {
+        $this->guard()->logout();
+
+        $request->session()->flush();
+
+        $request->session()->regenerate();
+
+        \Cookie::unqueue('auth_data');
+
+        return redirect('/');
+    }
 }

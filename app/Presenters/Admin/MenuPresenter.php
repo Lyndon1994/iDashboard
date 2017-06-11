@@ -175,7 +175,7 @@ Eof;
 		$html = '';
 		if ($sidebarMenus) {
 			foreach ($sidebarMenus as $menu) {
-				if (!auth()->user()->can($menu['slug'])) {
+                if (!auth()->user()->can($menu['slug'])) {
 					continue;
 				}
 				if ($menu['child']) {
@@ -208,6 +208,9 @@ Eof;
 		$html = '';
 		if ($childMenu) {
 			foreach ($childMenu as $v) {
+                if (!auth()->user()->can($v['slug'])) {
+                    continue;
+                }
 				$html .= '<li class="'.active_class(if_uri_pattern(explode(',',$v['active'])),'active').'"><a href="'.url($v['url']).'">'.$v['name'].'</a></li>';
 			}
 		}

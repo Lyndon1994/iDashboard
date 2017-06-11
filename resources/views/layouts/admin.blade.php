@@ -83,10 +83,10 @@
       @yield('content')
       <div class="footer">
           <div class="pull-right">
-              10GB of <strong>250GB</strong> Free.
+              辽ICP备16018738号-3
           </div>
           <div>
-              <strong>Copyright</strong> Lyndon &copy; http://www.linyii.com
+              <strong>Copyright</strong> M-Union &copy; 2017
           </div>
       </div>
 

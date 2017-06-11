@@ -1,5 +1,7 @@
 <?php
 namespace App\Http\Controllers\Admin;
+use App\Models\Permission;
+use App\Service\Admin\PermissionService;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Service\Admin\MenuService;
@@ -46,9 +48,22 @@ class MenuController extends Controller
      * @param  MenuRequest              $request [description]
      * @return [type]                            [description]
      */
-    public function store(MenuRequest $request)
+    public function store(MenuRequest $request, PermissionService $permission)
     {
         $responseData = $this->menu->storeMenu($request->all());
+
+        //添加菜单后自动添加权限
+        $slug = $request->input('slug');
+        if(Permission::where('slug',$slug)->count()<1) {
+            $permissionData = [
+                'name' => $request->input('name'),
+                'slug' => $slug,
+                'description' => $request->input('description'),
+                'model' => '',
+            ];
+            $permission->storePermission($permissionData);
+        }
+
         return response()->json($responseData);
     }
 
