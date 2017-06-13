@@ -30,7 +30,7 @@
       <div class="form-group">
         <label class="col-sm-2 control-label">{{trans('admin/menu.model.icon')}}</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" placeholder="{{trans('admin/menu.model.icon')}}" name="icon">
+          <input type="text" class="form-control icon-input" placeholder="{{trans('admin/menu.model.icon')}}" name="icon" data-provide="typeahead">
           <span class="help-block m-b-none">{!!trans('admin/menu.moreIcon')!!}</span>
         </div>
       </div>

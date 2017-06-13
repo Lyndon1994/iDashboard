@@ -48,6 +48,7 @@
 <script src="{{asset('vendors/ladda/ladda.jquery.min.js')}}"></script>
 <script src="{{asset('vendors/layer/layer.js')}}"></script>
 <script src="{{asset('admin/js/menu/menu.js')}}"></script>
+<script src="{{asset('admin/js/bootstrap3-typeahead.min.js')}}"></script>
 <script type="text/javascript">
   $('#nestable').on('click','.destroy_item',function() {
     var _item = $(this);
