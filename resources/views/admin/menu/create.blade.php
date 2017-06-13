@@ -45,14 +45,14 @@
       <div class="form-group">
         <label class="col-sm-2 control-label">{{trans('admin/menu.model.url')}}</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" placeholder="{{trans('admin/menu.model.url')}}" name="url">
+          <input id="menu-url" type="text" class="form-control" placeholder="{{trans('admin/menu.model.url')}}" name="url">
         </div>
       </div>
       <div class="hr-line-dashed"></div>
       <div class="form-group">
         <label class="col-sm-2 control-label">{{trans('admin/menu.model.active')}}</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" placeholder="{{trans('admin/menu.model.active')}}" name="active">
+          <input id="menu-active" type="text" class="form-control" placeholder="{{trans('admin/menu.model.active')}}" name="active">
         </div>
       </div>
       <div class="hr-line-dashed"></div>

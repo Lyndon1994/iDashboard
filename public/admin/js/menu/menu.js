@@ -3,7 +3,7 @@ var MenuList = function () {
         var $iconInput = $('.icon-input');
         var iconData = [];
         $.get('/admin/js/menu/icon.json',function (data) {
-            iconData = JSON.parse(data);
+            iconData = data;
             $iconInput.typeahead({
                 source: iconData,
                 autoSelect: true
@@ -18,6 +18,14 @@ var MenuList = function () {
             }
         });
     };
+    var menuActive=function () {
+        /**
+         * 菜单高亮地址跟着菜单链接改变而改变
+         */
+        $('#menu-url').keyup(function () {
+            $('#menu-active').val($(this).val()+'*');
+        });
+    }
     var menuInit = function () {
         $('#nestable').nestable({
             "maxDepth": 2
@@ -58,6 +66,7 @@ var MenuList = function () {
                     $(menu.middleBox).removeClass('fadeInRightBig').addClass('bounceOut').hide();
                     $(menu.box).append(htmlData);
                     icon();
+                    menuActive();
                 }
             });
         });
@@ -132,6 +141,8 @@ var MenuList = function () {
                         }
                     }
                     $(menu.box).append(htmlData);
+                    icon();
+                    menuActive();
                 }
             });
         });
@@ -211,4 +222,5 @@ var MenuList = function () {
 }();
 $(function () {
     MenuList.init();
+
 });
